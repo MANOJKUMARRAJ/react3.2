@@ -1,23 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import User from './component/User';
+import Users from './users.json';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <User/>
+      {
+      Users.map( user =>{
+        return(
+          <tr className="man" key={user.id}>
+            
+            <td>{user.id}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>{user.username}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>{user.email}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>{user.name.firstname}{user.name.lastname}</td>
+            <td>{user.phone}</td>
+          </tr>
+        )
+      })
+    }
     </div>
   );
 }
